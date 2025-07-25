@@ -1,0 +1,25 @@
+# platform-api-python .gitignore
+__pychache__/
+.venv/
+*.pyc
+
+
+
+# platform-api-ts .gitignore
+node_modules/
+dist/
+
+
+
+# platform-webpp .gitignore
+node_modules/
+dist/
+coverage/
+.next/
+
+
+
+# common
+.vscode/
+.DS_Store
+.env.*

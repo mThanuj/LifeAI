@@ -1,0 +1,8 @@
+# ignore host node modules and pnpm store
+node_modules
+.pnpm-store
+
+# common cruft
+.DS_Store
+.git
+.gitignore
