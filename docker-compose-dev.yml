@@ -1,81 +1,84 @@
 services:
     postgres-db:
-        image: postgres
+        image: pgvector/pgvector:pg17
         container_name: postgres-db
         ports:
-            - 5431:5432
+            - "5431:5432"
         env_file:
-            - ./platform-api-ts/.env.dev
+            - ./platform-api-ts/.env.development
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+
+    # pgadmin:
+    #     image: dpage/pgadmin4
+    #     container_name: pgadmin
+    #     depends_on:
+    #         - postgres-db
+    #     environment:
+    #         PGADMIN_DEFAULT_EMAIL: admin@admin.com
+    #         PGADMIN_DEFAULT_PASSWORD: admin
+    #     ports:
+    #         - "5050:80"
 
     platform-api-python:
-        depends_on:
-            - postgres-db
         build:
             context: ./platform-api-python
             dockerfile: Dockerfile.dev
         container_name: platform-api-python
         ports:
-            - 8000:8000
-        environment:
-            - PYTHONDONTWRITEBYTECODE=1
-            - PYTHONUNBUFFERED=1
+            - "8000:8000"
+        env_file:
+            - ./platform-api-python/.env.development
+        depends_on:
+            - postgres-db
         develop:
             watch:
                 - action: sync+restart
-                  path: ./platform-api-python
                   target: /platform-api-python
+                  path: ./platform-api-python
                   ignore:
-                      - ".venv"
-                      - "__pycache__"
-                      - "*.pyc"
-                      - "*.pyo"
-                      - "*.pyd"
-        env_file:
-            - ./platform-api-python/.env.dev
+                      - .venv
+                      - .git
 
     platform-api-ts:
-        depends_on:
-            - postgres-db
-            - platform-api-python
         build:
             context: ./platform-api-ts
             dockerfile: Dockerfile.dev
         container_name: platform-api-ts
         ports:
-            - 3333:3333
+            - "3333:3333"
+        env_file:
+            - ./platform-api-ts/.env.development
+        depends_on:
+            - postgres-db
         develop:
             watch:
                 - action: sync+restart
-                  path: ./platform-api-ts
                   target: /platform-api-ts
+                  path: ./platform-api-ts
                   ignore:
                       - node_modules
-                      - dist
                       - .git
-                      - .vscode
-                      - .DS_Store
-        env_file:
-            - ./platform-api-ts/.env.dev
 
     platform-webapp:
-        depends_on:
-            - platform-api-ts
         build:
             context: ./platform-webapp
             dockerfile: Dockerfile.dev
         container_name: platform-webapp
         ports:
-            - 3000:3000
+            - "5173:5173"
+        env_file:
+            - ./platform-webapp/.env.development
+        depends_on:
+            - platform-api-ts
         develop:
             watch:
                 - action: sync+restart
-                  path: ./platform-webapp
                   target: /platform-webapp
+                  path: ./platform-webapp
                   ignore:
                       - node_modules
-                      - dist
                       - .git
-                      - .vscode
-                      - .DS_Store
-        env_file:
-            - ./platform-webapp/.env.dev
+
+volumes:
+    postgres_data:

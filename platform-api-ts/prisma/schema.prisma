@@ -1,5 +1,4 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// This is your Prisma schema file, // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
@@ -72,5 +71,21 @@ model DocumentAnalysis {
     document_id String
     document    Document @relation(fields: [document_id], references: [id], onDelete: Cascade)
 
+    DocumentEmbedding DocumentEmbedding[]
+
     @@map("document_analyses")
+}
+
+model DocumentEmbedding {
+    id        String                      @id @default(uuid())
+    content   String
+    embedding Unsupported("vector(3072)")
+
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+
+    document_analysis_id String
+    document_analysis    DocumentAnalysis @relation(fields: [document_analysis_id], references: [id], onDelete: Cascade)
+
+    @@map("document_embeddings")
 }

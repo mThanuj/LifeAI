@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS vector;
+
 -- CreateEnum
 CREATE TYPE "DocumentStatus" AS ENUM ('PROCESSING', 'ANALYSED', 'FAILED');
 
@@ -46,6 +48,18 @@ CREATE TABLE "document_analyses" (
     CONSTRAINT "document_analyses_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "document_embeddings" (
+    "id" TEXT NOT NULL,
+    "content" TEXT NOT NULL,
+    "embedding" vector(1536) NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+    "document_analysis_id" TEXT NOT NULL,
+
+    CONSTRAINT "document_embeddings_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
@@ -54,3 +68,6 @@ ALTER TABLE "documents" ADD CONSTRAINT "documents_user_id_fkey" FOREIGN KEY ("us
 
 -- AddForeignKey
 ALTER TABLE "document_analyses" ADD CONSTRAINT "document_analyses_document_id_fkey" FOREIGN KEY ("document_id") REFERENCES "documents"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "document_embeddings" ADD CONSTRAINT "document_embeddings_document_analysis_id_fkey" FOREIGN KEY ("document_analysis_id") REFERENCES "document_analyses"("id") ON DELETE CASCADE ON UPDATE CASCADE;
