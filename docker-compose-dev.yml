@@ -3,7 +3,7 @@ services:
         image: postgres
         container_name: postgres-db
         ports:
-            - 5432:5432
+            - 5431:5432
         env_file:
             - ./platform-api-ts/.env.dev
 
