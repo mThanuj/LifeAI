@@ -1,5 +1,15 @@
 services:
+    postgres-db:
+        image: postgres
+        container_name: postgres-db
+        ports:
+            - 5432:5432
+        env_file:
+            - ./platform-api-ts/.env.dev
+
     platform-api-python:
+        depends_on:
+            - postgres-db
         build:
             context: ./platform-api-python
             dockerfile: Dockerfile.dev
@@ -24,6 +34,9 @@ services:
             - ./platform-api-python/.env.dev
 
     platform-api-ts:
+        depends_on:
+            - postgres-db
+            - platform-api-python
         build:
             context: ./platform-api-ts
             dockerfile: Dockerfile.dev
@@ -45,6 +58,8 @@ services:
             - ./platform-api-ts/.env.dev
 
     platform-webapp:
+        depends_on:
+            - platform-api-ts
         build:
             context: ./platform-webapp
             dockerfile: Dockerfile.dev
