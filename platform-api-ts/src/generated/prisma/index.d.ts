@@ -2287,7 +2287,8 @@ export namespace Prisma {
   export type DocumentMinAggregateOutputType = {
     id: string | null
     filename: string | null
-    storage_path: string | null
+    bucket_id: string | null
+    fileId: string | null
     file_size_in_bytes: number | null
     status: $Enums.DocumentStatus | null
     created_at: Date | null
@@ -2298,7 +2299,8 @@ export namespace Prisma {
   export type DocumentMaxAggregateOutputType = {
     id: string | null
     filename: string | null
-    storage_path: string | null
+    bucket_id: string | null
+    fileId: string | null
     file_size_in_bytes: number | null
     status: $Enums.DocumentStatus | null
     created_at: Date | null
@@ -2309,7 +2311,8 @@ export namespace Prisma {
   export type DocumentCountAggregateOutputType = {
     id: number
     filename: number
-    storage_path: number
+    bucket_id: number
+    fileId: number
     file_size_in_bytes: number
     status: number
     created_at: number
@@ -2330,7 +2333,8 @@ export namespace Prisma {
   export type DocumentMinAggregateInputType = {
     id?: true
     filename?: true
-    storage_path?: true
+    bucket_id?: true
+    fileId?: true
     file_size_in_bytes?: true
     status?: true
     created_at?: true
@@ -2341,7 +2345,8 @@ export namespace Prisma {
   export type DocumentMaxAggregateInputType = {
     id?: true
     filename?: true
-    storage_path?: true
+    bucket_id?: true
+    fileId?: true
     file_size_in_bytes?: true
     status?: true
     created_at?: true
@@ -2352,7 +2357,8 @@ export namespace Prisma {
   export type DocumentCountAggregateInputType = {
     id?: true
     filename?: true
-    storage_path?: true
+    bucket_id?: true
+    fileId?: true
     file_size_in_bytes?: true
     status?: true
     created_at?: true
@@ -2450,7 +2456,8 @@ export namespace Prisma {
   export type DocumentGroupByOutputType = {
     id: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status: $Enums.DocumentStatus
     created_at: Date
@@ -2480,7 +2487,8 @@ export namespace Prisma {
   export type DocumentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     filename?: boolean
-    storage_path?: boolean
+    bucket_id?: boolean
+    fileId?: boolean
     file_size_in_bytes?: boolean
     status?: boolean
     created_at?: boolean
@@ -2494,7 +2502,8 @@ export namespace Prisma {
   export type DocumentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     filename?: boolean
-    storage_path?: boolean
+    bucket_id?: boolean
+    fileId?: boolean
     file_size_in_bytes?: boolean
     status?: boolean
     created_at?: boolean
@@ -2506,7 +2515,8 @@ export namespace Prisma {
   export type DocumentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     filename?: boolean
-    storage_path?: boolean
+    bucket_id?: boolean
+    fileId?: boolean
     file_size_in_bytes?: boolean
     status?: boolean
     created_at?: boolean
@@ -2518,7 +2528,8 @@ export namespace Prisma {
   export type DocumentSelectScalar = {
     id?: boolean
     filename?: boolean
-    storage_path?: boolean
+    bucket_id?: boolean
+    fileId?: boolean
     file_size_in_bytes?: boolean
     status?: boolean
     created_at?: boolean
@@ -2526,7 +2537,7 @@ export namespace Prisma {
     user_id?: boolean
   }
 
-  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "filename" | "storage_path" | "file_size_in_bytes" | "status" | "created_at" | "updated_at" | "user_id", ExtArgs["result"]["document"]>
+  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "filename" | "bucket_id" | "fileId" | "file_size_in_bytes" | "status" | "created_at" | "updated_at" | "user_id", ExtArgs["result"]["document"]>
   export type DocumentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     DocumentAnalysis?: boolean | Document$DocumentAnalysisArgs<ExtArgs>
@@ -2548,7 +2559,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       filename: string
-      storage_path: string
+      bucket_id: string
+      fileId: string
       file_size_in_bytes: number
       status: $Enums.DocumentStatus
       created_at: Date
@@ -2981,7 +2993,8 @@ export namespace Prisma {
   interface DocumentFieldRefs {
     readonly id: FieldRef<"Document", 'String'>
     readonly filename: FieldRef<"Document", 'String'>
-    readonly storage_path: FieldRef<"Document", 'String'>
+    readonly bucket_id: FieldRef<"Document", 'String'>
+    readonly fileId: FieldRef<"Document", 'String'>
     readonly file_size_in_bytes: FieldRef<"Document", 'Int'>
     readonly status: FieldRef<"Document", 'DocumentStatus'>
     readonly created_at: FieldRef<"Document", 'DateTime'>
@@ -4537,7 +4550,8 @@ export namespace Prisma {
   export const DocumentScalarFieldEnum: {
     id: 'id',
     filename: 'filename',
-    storage_path: 'storage_path',
+    bucket_id: 'bucket_id',
+    fileId: 'fileId',
     file_size_in_bytes: 'file_size_in_bytes',
     status: 'status',
     created_at: 'created_at',
@@ -4789,7 +4803,8 @@ export namespace Prisma {
     NOT?: DocumentWhereInput | DocumentWhereInput[]
     id?: StringFilter<"Document"> | string
     filename?: StringFilter<"Document"> | string
-    storage_path?: StringFilter<"Document"> | string
+    bucket_id?: StringFilter<"Document"> | string
+    fileId?: StringFilter<"Document"> | string
     file_size_in_bytes?: IntFilter<"Document"> | number
     status?: EnumDocumentStatusFilter<"Document"> | $Enums.DocumentStatus
     created_at?: DateTimeFilter<"Document"> | Date | string
@@ -4802,7 +4817,8 @@ export namespace Prisma {
   export type DocumentOrderByWithRelationInput = {
     id?: SortOrder
     filename?: SortOrder
-    storage_path?: SortOrder
+    bucket_id?: SortOrder
+    fileId?: SortOrder
     file_size_in_bytes?: SortOrder
     status?: SortOrder
     created_at?: SortOrder
@@ -4818,7 +4834,8 @@ export namespace Prisma {
     OR?: DocumentWhereInput[]
     NOT?: DocumentWhereInput | DocumentWhereInput[]
     filename?: StringFilter<"Document"> | string
-    storage_path?: StringFilter<"Document"> | string
+    bucket_id?: StringFilter<"Document"> | string
+    fileId?: StringFilter<"Document"> | string
     file_size_in_bytes?: IntFilter<"Document"> | number
     status?: EnumDocumentStatusFilter<"Document"> | $Enums.DocumentStatus
     created_at?: DateTimeFilter<"Document"> | Date | string
@@ -4831,7 +4848,8 @@ export namespace Prisma {
   export type DocumentOrderByWithAggregationInput = {
     id?: SortOrder
     filename?: SortOrder
-    storage_path?: SortOrder
+    bucket_id?: SortOrder
+    fileId?: SortOrder
     file_size_in_bytes?: SortOrder
     status?: SortOrder
     created_at?: SortOrder
@@ -4850,7 +4868,8 @@ export namespace Prisma {
     NOT?: DocumentScalarWhereWithAggregatesInput | DocumentScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Document"> | string
     filename?: StringWithAggregatesFilter<"Document"> | string
-    storage_path?: StringWithAggregatesFilter<"Document"> | string
+    bucket_id?: StringWithAggregatesFilter<"Document"> | string
+    fileId?: StringWithAggregatesFilter<"Document"> | string
     file_size_in_bytes?: IntWithAggregatesFilter<"Document"> | number
     status?: EnumDocumentStatusWithAggregatesFilter<"Document"> | $Enums.DocumentStatus
     created_at?: DateTimeWithAggregatesFilter<"Document"> | Date | string
@@ -5014,7 +5033,8 @@ export namespace Prisma {
   export type DocumentCreateInput = {
     id?: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status?: $Enums.DocumentStatus
     created_at?: Date | string
@@ -5026,7 +5046,8 @@ export namespace Prisma {
   export type DocumentUncheckedCreateInput = {
     id?: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status?: $Enums.DocumentStatus
     created_at?: Date | string
@@ -5038,7 +5059,8 @@ export namespace Prisma {
   export type DocumentUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5050,7 +5072,8 @@ export namespace Prisma {
   export type DocumentUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5062,7 +5085,8 @@ export namespace Prisma {
   export type DocumentCreateManyInput = {
     id?: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status?: $Enums.DocumentStatus
     created_at?: Date | string
@@ -5073,7 +5097,8 @@ export namespace Prisma {
   export type DocumentUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5083,7 +5108,8 @@ export namespace Prisma {
   export type DocumentUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5338,7 +5364,8 @@ export namespace Prisma {
   export type DocumentCountOrderByAggregateInput = {
     id?: SortOrder
     filename?: SortOrder
-    storage_path?: SortOrder
+    bucket_id?: SortOrder
+    fileId?: SortOrder
     file_size_in_bytes?: SortOrder
     status?: SortOrder
     created_at?: SortOrder
@@ -5353,7 +5380,8 @@ export namespace Prisma {
   export type DocumentMaxOrderByAggregateInput = {
     id?: SortOrder
     filename?: SortOrder
-    storage_path?: SortOrder
+    bucket_id?: SortOrder
+    fileId?: SortOrder
     file_size_in_bytes?: SortOrder
     status?: SortOrder
     created_at?: SortOrder
@@ -5364,7 +5392,8 @@ export namespace Prisma {
   export type DocumentMinOrderByAggregateInput = {
     id?: SortOrder
     filename?: SortOrder
-    storage_path?: SortOrder
+    bucket_id?: SortOrder
+    fileId?: SortOrder
     file_size_in_bytes?: SortOrder
     status?: SortOrder
     created_at?: SortOrder
@@ -5837,7 +5866,8 @@ export namespace Prisma {
   export type DocumentCreateWithoutUserInput = {
     id?: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status?: $Enums.DocumentStatus
     created_at?: Date | string
@@ -5848,7 +5878,8 @@ export namespace Prisma {
   export type DocumentUncheckedCreateWithoutUserInput = {
     id?: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status?: $Enums.DocumentStatus
     created_at?: Date | string
@@ -5888,7 +5919,8 @@ export namespace Prisma {
     NOT?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
     id?: StringFilter<"Document"> | string
     filename?: StringFilter<"Document"> | string
-    storage_path?: StringFilter<"Document"> | string
+    bucket_id?: StringFilter<"Document"> | string
+    fileId?: StringFilter<"Document"> | string
     file_size_in_bytes?: IntFilter<"Document"> | number
     status?: EnumDocumentStatusFilter<"Document"> | $Enums.DocumentStatus
     created_at?: DateTimeFilter<"Document"> | Date | string
@@ -6020,7 +6052,8 @@ export namespace Prisma {
   export type DocumentCreateWithoutDocumentAnalysisInput = {
     id?: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status?: $Enums.DocumentStatus
     created_at?: Date | string
@@ -6031,7 +6064,8 @@ export namespace Prisma {
   export type DocumentUncheckedCreateWithoutDocumentAnalysisInput = {
     id?: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status?: $Enums.DocumentStatus
     created_at?: Date | string
@@ -6058,7 +6092,8 @@ export namespace Prisma {
   export type DocumentUpdateWithoutDocumentAnalysisInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6069,7 +6104,8 @@ export namespace Prisma {
   export type DocumentUncheckedUpdateWithoutDocumentAnalysisInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6080,7 +6116,8 @@ export namespace Prisma {
   export type DocumentCreateManyUserInput = {
     id?: string
     filename: string
-    storage_path: string
+    bucket_id: string
+    fileId: string
     file_size_in_bytes: number
     status?: $Enums.DocumentStatus
     created_at?: Date | string
@@ -6090,7 +6127,8 @@ export namespace Prisma {
   export type DocumentUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6101,7 +6139,8 @@ export namespace Prisma {
   export type DocumentUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6112,7 +6151,8 @@ export namespace Prisma {
   export type DocumentUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     filename?: StringFieldUpdateOperationsInput | string
-    storage_path?: StringFieldUpdateOperationsInput | string
+    bucket_id?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
     file_size_in_bytes?: IntFieldUpdateOperationsInput | number
     status?: EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string

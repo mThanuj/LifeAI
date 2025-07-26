@@ -1,7 +1,6 @@
-import { User } from "../generated/prisma";
-
-declare module "express" {
-    interface Request {
-        user?: User;
+declare namespace Express {
+    export interface Request {
+        user?: import("../generated/prisma").User;
+        isAuthenticated(): boolean;
     }
 }

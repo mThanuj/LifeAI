@@ -1,0 +1,10 @@
+POST http://localhost:3333/documents/upload-document
+Content-Type: multipart/form-data; boundary=----boundary
+
+------boundary
+Content-Disposition: form-data; name="document"; filename="index.ts"
+Content-Type: application/javascript
+
+< ./index.ts
+
+------boundary--

@@ -45,7 +45,8 @@ model User {
 model Document {
   id                 String         @id @default(uuid())
   filename           String
-  storage_path       String
+  bucket_id          String
+  fileId             String
   file_size_in_bytes Int
   status             DocumentStatus @default(PROCESSING)
 

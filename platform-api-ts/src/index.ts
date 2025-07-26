@@ -5,10 +5,12 @@ import passport from "./config/passport.config";
 import cors from "cors";
 
 import authRoutes from "./routes/auth.routes";
+import documentRoutes from "./routes/document.routes";
 
 const app = express();
 const port = +env.PORT;
 
+app.use(express.json());
 app.use(
     cors({
         origin:
@@ -33,6 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", authRoutes);
+app.use("/documents", documentRoutes);
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);

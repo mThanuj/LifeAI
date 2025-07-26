@@ -19,6 +19,7 @@ const envSchema = z.object({
     FRONTEND_URL: z.url(),
     BACKBLAZE_API_ID: z.string(),
     BACKBLAZE_API_KEY: z.string(),
+    BACKBLAZE_BUCKET_ID: z.string(),
 });
 
 const env = envSchema.safeParse(process.env);
