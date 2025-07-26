@@ -17,10 +17,12 @@
     "packageManager": "pnpm@10.12.4",
     "dependencies": {
         "@prisma/client": "6.12.0",
+        "backblaze-b2": "^1.7.1",
         "cors": "^2.8.5",
         "dotenv": "^17.2.1",
         "express": "^5.1.0",
         "express-session": "^1.18.2",
+        "multer": "^2.0.2",
         "passport": "^0.7.0",
         "passport-google-oauth20": "^2.0.0",
         "zod": "^4.0.10"
@@ -28,9 +30,11 @@
     "devDependencies": {
         "@eslint/js": "^9.31.0",
         "@eslint/json": "^0.13.1",
+        "@types/backblaze-b2": "^1.5.6",
         "@types/cors": "^2.8.19",
         "@types/express": "^5.0.3",
         "@types/express-session": "^1.18.2",
+        "@types/multer": "^2.0.0",
         "@types/node": "^24.1.0",
         "@types/passport": "^1.0.17",
         "@types/passport-google-oauth20": "^2.0.16",
