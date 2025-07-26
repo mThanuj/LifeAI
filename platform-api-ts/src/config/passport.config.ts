@@ -1,8 +1,8 @@
 import { Strategy as GoogleOAuthStrategy } from "passport-google-oauth20";
 import passport from "passport";
 import env from "./config";
-import { User } from "../generated/prisma";
 import prisma from "./prisma.config";
+import { User } from "../generated/prisma";
 
 passport.serializeUser((user, done) => {
     done(null, (user as User).id);
