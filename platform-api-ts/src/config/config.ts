@@ -17,6 +17,8 @@ const envSchema = z.object({
     SESSION_SECRET: z.string(),
     CORS_ORIGIN: z.url(),
     FRONTEND_URL: z.url(),
+    BACKBLAZE_API_ID: z.string(),
+    BACKBLAZE_API_KEY: z.string(),
 });
 
 const env = envSchema.safeParse(process.env);
