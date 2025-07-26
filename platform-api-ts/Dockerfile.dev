@@ -1,6 +1,8 @@
 FROM node:24-slim
 
-RUN apt update
+RUN apt update && \
+    apt-get update -y && \
+    apt-get install -y openssl
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -8,7 +10,7 @@ RUN corepack enable
 
 WORKDIR /platform-api-ts
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml .env.development ./
 
 COPY . .
 

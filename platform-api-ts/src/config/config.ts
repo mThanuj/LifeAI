@@ -1,7 +1,9 @@
 import { config } from "dotenv";
 import { z } from "zod";
 
-config();
+config({
+    path: `.env.${process.env.NODE_ENV || "development"}`,
+});
 
 const envSchema = z.object({
     PORT: z.string(),
@@ -13,6 +15,8 @@ const envSchema = z.object({
     GOOGLE_CLIENT_SECRET: z.string(),
     GOOGLE_CALLBACK_URL: z.url(),
     SESSION_SECRET: z.string(),
+    CORS_ORIGIN: z.url(),
+    FRONTEND_URL: z.url(),
 });
 
 const env = envSchema.safeParse(process.env);

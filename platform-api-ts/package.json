@@ -8,8 +8,8 @@
         "start": "node dist/index.js",
         "dev": "nodemon src/index.ts",
         "lint": "eslint . --ext .ts",
-        "migrate:postgres": "npx dotenv -e .env.development -- npx prisma migrate dev",
-        "generate:postgres": "npx dotenv -e .env.development -- npx prisma generate"
+        "postgres:migrate:dev": "npx dotenv -e .env.development -- npx prisma migrate dev",
+        "postgres:generate:dev": "npx dotenv -e .env.development -- npx prisma generate"
     },
     "keywords": [],
     "author": "",
@@ -17,6 +17,7 @@
     "packageManager": "pnpm@10.12.4",
     "dependencies": {
         "@prisma/client": "6.12.0",
+        "cors": "^2.8.5",
         "dotenv": "^17.2.1",
         "express": "^5.1.0",
         "express-session": "^1.18.2",
@@ -27,6 +28,7 @@
     "devDependencies": {
         "@eslint/js": "^9.31.0",
         "@eslint/json": "^0.13.1",
+        "@types/cors": "^2.8.19",
         "@types/express": "^5.0.3",
         "@types/express-session": "^1.18.2",
         "@types/node": "^24.1.0",
