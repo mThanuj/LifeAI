@@ -12,8 +12,6 @@ dist/
 
 
 # platform-webpp .gitignore
-node_modules/
-dist/
 coverage/
 .next/
 
