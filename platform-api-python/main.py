@@ -1,10 +1,7 @@
-from typing import Union
-
 from fastapi import FastAPI
+from routes.ask_route import router as ask_router
 
-app = FastAPI()
+app = FastAPI(title="File-based Q&A API")
 
-
-@app.get("/")
-async def read_root():
-    return {"Hello": "World"}
+# Include routes
+app.include_router(ask_router, prefix="/api")

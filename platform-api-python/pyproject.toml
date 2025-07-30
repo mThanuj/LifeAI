@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "b2sdk>=2.9.4",
     "chromadb>=1.0.15",
     "fastapi[standard]>=0.116.1",
     "google-generativeai>=0.8.5",
